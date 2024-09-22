@@ -1,38 +1,148 @@
-.App {
+/* Устанавливаем фон */
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: url('https://i.gifer.com/IrM.gif') no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+}
+
+/* Навбар */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон */
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Чтобы навбар был поверх остального контента */
+}
+
+.navbar-logo {
+  width: 50px; /* Размер логотипа */
+  height: auto;
+  margin-right: 10px; /* Отступ между логотипом и текстом */
+}
+
+.navbar h1 {
+  color: #b03a2e; /* Белый цвет текста для лучшего контраста */
+  margin: 0;
+  font-size: 1.5rem; /* Размер шрифта заголовка */
+  animation: colorCycle 3s infinite; /* Анимация перелива цвета */
+}
+
+@keyframes colorCycle {
+  0% {
+    color: #b03a2e; /* Первый оттенок бордового */
+  }
+  50% {
+    color: #e74c3c; /* Второй оттенок бордового */
+  }
+  100% {
+    color: #b03a2e; /* Возвращение к первому оттенку бордового */
+  }
+}
+
+/* Центрирование всего контента */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px; /* Отступ сверху, чтобы контент не перекрывался навбаром */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.aviator-button {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #03192f; /* Темно-синий цвет */
   color: white;
+  font-size: 20px; /* Размер шрифта */
+  font-weight: bold;
+  border: 4px solid #b03a2e; /* Бордовая граница */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Для центрирования спиннера */
+  overflow: hidden; /* Чтобы спиннер не выходил за пределы кнопки */
 }
 
-.App-link {
-  color: #61dafb;
+.aviator-button:hover {
+  background-color: #6000e6; /* Темнее при наведении */
 }
 
-@keyframes App-logo-spin {
-  from {
+.aviator-button:disabled {
+  cursor: not-allowed; /* Изменение курсора на недоступный */
+  background-color: #03192f; /* Темно-синий цвет */
+  border: 4px solid #b03a2e; /* Бордовая граница */
+}
+
+.aviator-button .spinner {
+  display: none; /* Скрываем спиннер по умолчанию */
+}
+
+.aviator-button.loading .spinner {
+  display: block; /* Показываем спиннер при загрузке */
+}
+
+.spinner {
+  border: 6px solid rgba(255, 255, 255, 0.3); /* Легкий белый фон */
+  border-radius: 50%;
+  border-top: 6px solid #fff; /* Белая верхняя часть */
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
+}
+
+.aviator-image {
+  margin-top: 20px;
+  width: 200px; /* Размер изображения */
+  height: auto; /* Соответствие пропорциям */
+  border-radius: 10px; /* Закруглённые углы для изображения */
+}
+
+/* Кнопка MORE INFO */
+.more-info-button {
+  margin-top: 40px;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background-color: #b03a2e; /* Бордовый цвет */
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.more-info-button:hover {
+  background-color: #e74c3c; /* Более яркий бордовый цвет при наведении */
 }
