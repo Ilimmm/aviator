@@ -9,10 +9,10 @@ function App() {
 
   const handleClick = () => {
     setLoading(true);
-    // Генерация случайного числа от 1.00 до 9.99
+    // Установка фиксированного коэффициента 2.74
     setTimeout(() => {
-      const randomCoefficient = (Math.random() * (9.99 - 1.00) + 1.00).toFixed(2);
-      setSignal(`${randomCoefficient}x`);
+      const fixedCoefficient = '2.74x';
+      setSignal(fixedCoefficient);
       setLoading(false);
     }, 1000); // Анимация загрузки длится 1 секунду
   };
