@@ -11,7 +11,7 @@ function App() {
     setLoading(true);
     // Установка фиксированного коэффициента 2.74
     setTimeout(() => {
-      const fixedCoefficient = '2.74x';
+      const fixedCoefficient = '3.17x';
       setSignal(fixedCoefficient);
       setLoading(false);
     }, 1000); // Анимация загрузки длится 1 секунду
